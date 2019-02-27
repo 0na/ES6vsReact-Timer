@@ -1,17 +1,12 @@
-const {
-    minutes,
-    seconds,
-    miliseconds
-} = times
+const {minutes, seconds, miliseconds} = times
 
-class Stopwatch extends React.Component { //mysle,ze ok
+class Stopwatch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            running = false,
-            display = display,
+        running = false,
+        display = display,
         }
-        //       this.reset();
         this.print(this.times);
     }
     reset() {
@@ -28,28 +23,28 @@ class Stopwatch extends React.Component { //mysle,ze ok
         this.display.innerText = this.format(this.times);
     }
 
-    format() {
+format() {
         this.times(pad0) = {
             minutes,
             seconds,
-            miliseconds
+            miliseconds,
         };
     }
 
-    start() {
+start() {
         if (!this.running) {
             this.running = true;
             this.watch = setInterval(() => this.step(), 10);
         }
     }
-    step() {
+step() {
         if (!this.running) return;
         this.calculate();
         this.print();
     }
-    calculate() {
-        this.times = {
-            miliseconds = +1,
+calculate() {
+        this.state.times = {
+            miliseconds = +1;
             if (this.miliseconds >= 100) {
                 seconds = +1,
                     miliseconds = 0;
@@ -60,37 +55,31 @@ class Stopwatch extends React.Component { //mysle,ze ok
             }
         }
     }
-    stop() {
+stop() {
         this.running = false;
         clearInterval(this.watch);
     }
 
 }
-//tu pod spodem bedzie return
-const stopwatch = new Stopwatch(
-    document.querySelector('.stopwatch'));
 
-let startButton = document.getElementById('start');
-startButton.addEventListener('click', () => stopwatch.start());
+// const stopwatch = new Stopwatch(
+//     document.querySelector('.stopwatch'));
 
-let stopButton = document.getElementById('stop');
-stopButton.addEventListener('click', () => stopwatch.stop());
+// let startButton = document.getElementById('start');
+// startButton.addEventListener('click', () => stopwatch.start());
 
+// let stopButton = document.getElementById('stop');
+// stopButton.addEventListener('click', () => stopwatch.stop());
 
-render() {
-    return {
-        <
-        nav className = {
-            "controls"
-        } >
-
-        <
-        /nav>
-    }
+render ();{
+return {
+    <nav className={"controls"}>
+    <a className={"button"} href={"#"} id={"start"} onClick={() => this.start()} </a>
+    <a className={"button"} href={"#"} id={"stop"} onClick={() => this.stop()} </a>
+    </nav>
+    <div className={"stopwatch"} </div>
 }
-
-
-
+}
 
 //Funkcja pad0 przyjmuje na wejście wartość liczbową, przekształca ją na stringa, a następnie sprawdza czy długość tego przekształcenia jest mniejsza od 2 dodając tym samym zero przed tę liczbę.
 function pad0(value) {
